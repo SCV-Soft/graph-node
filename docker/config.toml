@@ -14,7 +14,7 @@ provider = [
 [chains.baobab]
 shard = "primary"
 provider = [
-    { label = "baobab", url = "https://public-node-api.klaytnapi.com/v1/baobab", features = [] }
+    { label = "baobab", url = "https://api.baobab.klaytn.net:8651", features = [] }
 ]
 
 [deployment]
