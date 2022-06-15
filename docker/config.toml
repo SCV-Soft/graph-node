@@ -19,4 +19,5 @@ provider = [
 
 [deployment]
 [[deployment.rule]]
+shard = "primary"
 indexers = [ "index_node_0" ]
