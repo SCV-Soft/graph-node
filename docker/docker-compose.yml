@@ -11,17 +11,20 @@ services:
     depends_on:
       - postgres
     extra_hosts:
-      - host.docker.internal:host-gateway
+      - 172.21.0.1:host-gateway
     environment:
       postgres_host: postgres
       postgres_user: graph-node
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: 'https://ipfs.io'
-      ethereum: 'baobab:https://api.baobab.klaytn.net:8651'
+      GRAPH_NODE_CONFIG: '/tmp/config.toml'
+      # ethereum: 'baobab:https://api.baobab.klaytn.net:8651'
       GRAPH_LOG: info
       GRAPH_ALLOW_NON_DETERMINISTIC_FULLTEXT_SEARCH: 'true'
       GRAPH_ALLOW_NON_DETERMINISTIC_IPFS: 'true'
+    volumes:
+      - ./config.toml:/tmp/config.toml
   postgres:
     image: postgres
     ports:

@@ -1,0 +1,22 @@
+[store]
+[store.primary]
+connection = "postgresql://graph-node:let-me-in@postgres:5432/graph-node"
+weight = 1
+pool_size = 10
+
+[chains]
+ingestor = "block_ingestor_node"
+[chains.cypress]
+shard = "primary"
+provider = [
+  { label = "cypress", url = "https://klaytn01.fandom.finance/", features = [] }
+]
+[chains.baobab]
+shard = "primary"
+provider = [
+    { label = "baobab", url = "https://public-node-api.klaytnapi.com/v1/baobab", features = [] }
+]
+
+[deployment]
+[[deployment.rule]]
+indexers = [ "index_node_0" ]
