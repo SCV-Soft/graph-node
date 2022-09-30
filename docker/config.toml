@@ -1,0 +1,23 @@
+[store]
+[store.primary]
+connection = "postgresql://graph-node:let-me-in@postgres:5432/graph-node"
+weight = 1
+pool_size = 10
+
+[chains]
+ingestor = "default"
+[chains.cypress]
+shard = "primary"
+provider = [
+  { label = "cypress", url = "https://klaytn-mainnet-rpc.allthatnode.com:8551", features = [] }
+]
+[chains.baobab]
+shard = "primary"
+provider = [
+    { label = "baobab", url = "https://klaytn-baobab-rpc.allthatnode.com:8551", features = [] }
+]
+
+[deployment]
+[[deployment.rule]]
+store = "primary"
+indexers = [ "default" ]

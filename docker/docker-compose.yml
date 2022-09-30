@@ -19,10 +19,12 @@ services:
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: 'ipfs:5001'
-      ethereum: 'baobab:https://api.baobab.klaytn.net:8651'
+      GRAPH_NODE_CONFIG: '/tmp/config.toml'
       GRAPH_LOG: info
       GRAPH_ALLOW_NON_DETERMINISTIC_FULLTEXT_SEARCH: 'true'
       GRAPH_ALLOW_NON_DETERMINISTIC_IPFS: 'true'
+    volumes:
+      - ./config.toml:/tmp/config.toml
   ipfs:
     image: ipfs/go-ipfs:v0.4.23
     ports:
