@@ -16,6 +16,16 @@ shard = "primary"
 provider = [
     { label = "baobab", url = "https://klaytn-baobab-rpc.allthatnode.com:8551", features = [] }
 ]
+[chains.mainnet]
+shard = "primary"
+provider = [
+  { label = "mainnet", url = "https://ethereum-mainnet-rpc.allthatnode.com", features = [] }
+]
+[chains.goerli]
+shard = "primary"
+provider = [
+  { label = "goerli", url = "https://ethereum-goerli-rpc.allthatnode.com", features = [] }
+]
 
 [deployment]
 [[deployment.rule]]
